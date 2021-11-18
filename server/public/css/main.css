@@ -1,6 +1,10 @@
 body {
   width: 75%;
   margin: auto;
+  background-image: url(https://i.picsum.photos/id/1028/5184/3456.jpg?hmac=WhttNfn25eTgLTNnhRujSq4IVjx2mMa6wvPG1c6qMVc), linear-gradient(rgb(219, 166, 166), rgb(0, 0, 172));
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h1 {
