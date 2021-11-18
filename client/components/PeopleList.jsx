@@ -10,10 +10,11 @@ import PersonListItem from './PersonListItem'
 function PeopleList (props) {
   const { children, history } = props
   const people = useSelector(state => state.people)
+  console.log('people: ', people)
   // useEffect to call fetchProducts
   const dispatch = useDispatch()
   useEffect(() => {
-    // dispatch(fetchPeople())
+    dispatch(fetchPeople())
   }, [])
 
   // function addPersonToCart (product) {
