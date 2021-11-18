@@ -1,18 +1,23 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+
 // import actions
+import { fetchPeople } from '../actions/people'
 
 // import other components
 import PersonListItem from './PersonListItem'
 
 function PeopleList (props) {
-  // const { children, history } = props
+  const { children, history } = props
+
+  // setting people equal to the current state
   const people = useSelector(state => state.people)
+
   // useEffect to call fetchProducts
   const dispatch = useDispatch()
   useEffect(() => {
-    // dispatch(fetchPeople())
+    dispatch(fetchPeople())
   }, [])
 
   // function addPersonToCart (product) {
@@ -35,7 +40,7 @@ function PeopleList (props) {
         return (
           <PersonListItem
             key={people.id}
-            // product={people}
+            person={people}
             // addToCart={addPersonToCart}
           />
         )
