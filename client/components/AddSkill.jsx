@@ -7,6 +7,7 @@ function AddSkill (props) {
   function handleSubmit (event) {
     event.preventDefault()
     console.log('AddSkill: handleSubmit')
+    
   }
 
   function handleChange (event) {
