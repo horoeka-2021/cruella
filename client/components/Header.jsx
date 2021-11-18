@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 function Header () {
   return (
     <>
-      <h1 className='app'>
-        <span className='fa fa-thermometer' />
-        {' '} Creulla&apos;s {' '}
+      <h1 className='welcome'>
         <span className='fa fa-flask' />
+        {' '} Creulla&apos;s {' '}
+        <span className='fa fa' />
       </h1>
       <div className='nav'>
         <nav>
