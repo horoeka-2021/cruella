@@ -27,7 +27,7 @@ function PeopleList (props) {
   // }
 
   return (
-    <div className='peopleList'>
+    <div className='productList'>
       <div className='welcome'>
         <p>
           Welcome! Please choose from our delicious selection of people and don&apos;t
