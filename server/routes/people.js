@@ -6,11 +6,29 @@ const router = express.Router()
 
 module.exports = router
 
-router.get('/', (req, res) => [
+router.get('/', (req, res) => {
   db.listPeople()
     .then(people => {
       res.json(people)
       return null
     })
     .catch(err => console.error('These people are highly confidential. No peeking! ', err.message))
-])
+})
+
+router.post('/', (req, res) => {
+  db.addPerson(req.body)
+    .then(() => {
+      res.sendStatus(201)
+      return null
+    })
+    .catch(err => console.error('Who do you think you are, God! ', err.message))
+})
+
+router.patch('/', (req, res) => {
+  db.updatePerson(req.body)
+    .then(() => {
+      res.sendStatus(200)
+      return null
+    })
+    .catch(err => console.error('You cannot change my mind! ', err.message))
+})
