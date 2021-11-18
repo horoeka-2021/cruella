@@ -7,12 +7,12 @@ export function getPeople () {
     .then((res) => res.body)
 }
 
-export function postPerson(person) {
+export function postPerson (person) {
   return request.post(peopleUrl)
-  .send(person)
+    .send(person)
 }
 
-export function patchPerson(updatedPerson) {
+export function patchPerson (updatedPerson) {
   return request.patch(peopleUrl)
-  .send(updatedPerson)
+    .send(updatedPerson)
 }
