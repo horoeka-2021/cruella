@@ -12,7 +12,6 @@ function PeopleList (props) {
 
   // setting people equal to the current state
   const people = useSelector(state => state.people)
-  console.log('people: ', people)
 
   // useEffect to call fetchProducts
   const dispatch = useDispatch()
@@ -40,7 +39,7 @@ function PeopleList (props) {
         return (
           <PersonListItem
             key={people.id}
-            // product={people}
+            person={people}
             // addToCart={addPersonToCart}
           />
         )

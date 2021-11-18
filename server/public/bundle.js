@@ -266,8 +266,7 @@ function PeopleList(props) {
 
   var people = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.people;
-  });
-  console.log('people: ', people); // useEffect to call fetchProducts
+  }); // useEffect to call fetchProducts
 
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -285,8 +284,8 @@ function PeopleList(props) {
     className: "welcome"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Welcome! Please choose from our delicious selection of people and don't hesitate to let us know if we can answer any of your questions.")), people.map(function (people) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_PersonListItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      key: people.id // product={people}
-      // addToCart={addPersonToCart}
+      key: people.id,
+      person: people // addToCart={addPersonToCart}
 
     });
   }));
@@ -311,9 +310,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function PersonListItem(props) {
+  var _props$person = props.person,
+      name = _props$person.name,
+      skill = _props$person.skill,
+      story = _props$person.story;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "person-list-item"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "I am a person list item!"));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+    className: "name"
+  }, name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+    className: "skill"
+  }, "Skill: ", skill), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+    className: "story"
+  }, "Story: ", story));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PersonListItem);
