@@ -13,7 +13,7 @@ function PeopleList (props) {
   // useEffect to call fetchProducts
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(fetchPeople())
+    // dispatch(fetchPeople())
   }, [])
 
   // function addPersonToCart (product) {
@@ -31,7 +31,7 @@ function PeopleList (props) {
           hesitate to let us know if we can answer any of your questions.
         </p>
       </div>
-      {children} {/* This holds the WaitIndicator (from App) */}
+      {/* {children} This holds the WaitIndicator (from App) */}
       {people.map(people => {
         return (
           <PersonListItem
