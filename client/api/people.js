@@ -19,7 +19,7 @@ export function patchPerson (updatedPerson) {
 
 const deepai = require('deepai')
 
-deepai.setApiKey('6137f994-a7fc-45fb-be37-1cdbe4ea10a0')
+deepai.setApiKey('85919d77-aebd-4bb6-ba08-59db1085e497')
 
 export function getStory (story) {
   return deepai.callStandardApi('text-generator', {
