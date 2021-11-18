@@ -9,8 +9,11 @@ import PersonListItem from './PersonListItem'
 
 function PeopleList (props) {
   const { children, history } = props
+
+  // setting people equal to the current state
   const people = useSelector(state => state.people)
   console.log('people: ', people)
+
   // useEffect to call fetchProducts
   const dispatch = useDispatch()
   useEffect(() => {

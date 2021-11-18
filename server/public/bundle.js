@@ -262,7 +262,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function PeopleList(props) {
   var children = props.children,
-      history = props.history;
+      history = props.history; // setting people equal to the current state
+
   var people = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.people;
   });

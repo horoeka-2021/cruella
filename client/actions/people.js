@@ -11,7 +11,7 @@ export const fetchPeoplePending = () => ({
 // action creater for fetching people success
 export const fetchPeopleSuccess = people => ({
   type: FETCH_PEOPLE_SUCCESS,
-  people
+  people: people
 })
 
 // function that returns a function that dispatches the action
