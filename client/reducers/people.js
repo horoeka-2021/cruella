@@ -1,6 +1,8 @@
 import { FETCH_PEOPLE_SUCCESS } from '../actions/people'
 
-function people (state = [], action) {
+const intialPeopleState = ['tane']
+
+function people (state = intialPeopleState, action) {
   switch (action.type) {
     case FETCH_PEOPLE_SUCCESS:
       return action.people

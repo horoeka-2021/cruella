@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom'
 import Header from './Header'
 import PeopleList from './PeopleList'
 import WaitIndicator from './WaitIndicator'
+import AddSkill from './AddSkill'
 
 function App () {
   return (
@@ -14,6 +15,11 @@ function App () {
         return <PeopleList history={history} >
           <WaitIndicator />
         </PeopleList>
+      }} />
+      <Route path='/addskill' render={({ history }) => {
+        return <AddSkill history={history} >
+          <WaitIndicator />
+        </AddSkill>
       }} />
     </div>
   )
