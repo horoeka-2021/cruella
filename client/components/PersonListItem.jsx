@@ -1,9 +1,13 @@
 import React from 'react'
 
 function PersonListItem (props) {
+  const { name, skill, story } = props.person
+
   return (
     <div className="product">
-      <h1>I am a person list item!</h1>
+      <p className='name'>{name}</p>
+      <p className='skill'>Skill: {skill}</p>
+      <p className='story'>Story: {story}</p>
     </div>
   )
 }

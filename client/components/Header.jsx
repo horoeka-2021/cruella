@@ -5,7 +5,7 @@ function Header () {
   return (
     <>
       <h1 className='welcome'>
-        <span className='fa fa-flask' />
+        <span className='fa fa-' />
         {' '} Creulla&apos;s {' '}
         <span className='fa fa' />
       </h1>
