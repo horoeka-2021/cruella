@@ -6,8 +6,11 @@ import Header from './Header'
 import PeopleList from './PeopleList'
 import WaitIndicator from './WaitIndicator'
 import AddSkill from './AddSkill'
+import Person from './Person'
+import { useSelector } from 'react-redux'
 
 function App () {
+  const people = useSelector(state => state.people)
   return (
     <div className='app'>
       <Route path='/' component={Header} />
@@ -20,6 +23,11 @@ function App () {
         return <AddSkill history={history} >
           <WaitIndicator />
         </AddSkill>
+      }} />
+      <Route path='/people/:id' render={({ history, match }) => {
+        return <Person history={history} people={people} >
+          <WaitIndicator />
+        </Person>
       }} />
     </div>
   )
