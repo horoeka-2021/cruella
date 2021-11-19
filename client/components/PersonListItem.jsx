@@ -20,7 +20,7 @@ function PersonListItem (props) {
       <p className='name'>{name}</p>
       <p className='skill'>Skill: {skill}</p>
       {/* <p className='story'>Story: {generatedOutput?.output}</p> */}
-      <p className='story'>Story: {story}</p>
+      {/* <p className='story'>Story: {story}</p> */}
     </div>
   )
 }
