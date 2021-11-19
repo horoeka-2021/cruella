@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-
 // import actions
 import { fetchPeople } from '../actions/people'
 
@@ -32,8 +31,10 @@ function PeopleList (props) {
     <div className='productList'>
       <div className='welcome'>
         <p>
-          Welcome! Please choose from our delicious selection of people and don&apos;t
-          hesitate to let us know if we can answer any of your questions.
+          Welcome to Creulla&apos;s micro-awesome exhange.
+
+          Access a selection of best in class microskills, add your own or mix and match for any occasion.
+
         </p>
       </div>
       {/* {children} This holds the WaitIndicator (from App) */}
