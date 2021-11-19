@@ -1,12 +1,14 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { addPerson } from '../actions/people'
+import { setWaiting } from '../actions/setWaiting'
 import { getStory } from '../api/people'
 
 // import formatPerson from '../utils/formatPerson'
 
 function AddSkill (props) {
-  const { history } = props
+  console.log(props)
+  const { children, history } = props
   const initialState = { name: '', skill: '', story: '' }
   const [newPerson, setNewPerson] = React.useState(initialState)
   const dispatch = useDispatch()
@@ -22,6 +24,7 @@ function AddSkill (props) {
     // new code, basically just bringing the code from formatPerson here.
     const randomStoryPerson = { ...newPerson }
     const storyForRandomizer = `${randomStoryPerson.name} is the best in the world at ${randomStoryPerson.skill} because ${randomStoryPerson.story}`
+    dispatch(setWaiting())
 
     getStory(storyForRandomizer)
       .then(story => {
@@ -49,6 +52,7 @@ function AddSkill (props) {
       <label htmlFor='story'>story:</label>
       <input name='story' type='text' value={newPerson.story} onChange={(e) => handleChange(e)} />
       <button type='submit' onClick={handleSubmit}>Add</button>
+      {children}
     </div>
   )
 }
