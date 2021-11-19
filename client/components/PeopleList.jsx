@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+
 
 // import actions
 import { fetchPeople } from '../actions/people'
@@ -35,13 +37,16 @@ function PeopleList (props) {
         </p>
       </div>
       {/* {children} This holds the WaitIndicator (from App) */}
-      {people.map(people => {
+      {people.map(person => {
         return (
-          <PersonListItem
-            key={people.id}
-            person={people}
-            // addToCart={addPersonToCart}
-          />
+          // link to /people/:id and pass person as a prop
+          <Link to={`/people/${person.id}`} key={person.id} person={person}>
+            <PersonListItem
+              key={person.id}
+              person={person}
+              // addToCart={addPersonToCart}
+            />
+          </Link>
         )
       })}
     </div>
