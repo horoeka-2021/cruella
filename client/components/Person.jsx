@@ -20,9 +20,9 @@ function Person (props) {
       <img src={pictureUrlJPG} alt="" />
       <img src={pictureUrlJPEG} alt="" />
       <img src={pictureUrlPNG} alt="" />
-      <p>
-        I am {person.name} My skill is {person.skill} and my story is {person.story}
-      </p>
+      <h3>{person.name}</h3>
+      <h4>{person.skill}</h4>
+      <p>{person.story}</p>
     </div>
   )
 }
