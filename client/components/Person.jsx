@@ -10,10 +10,9 @@ function Person (props) {
   console.log('Person person: ', person)
   return (
     <div>
-      <h1>I am a person</h1>
-      <p>
-        I am {person.name} My skill is {person.skill} and my story is {person.story}
-      </p>
+      <h3>{person.name}</h3>
+      <h4>{person.skill}</h4>
+      <p>{person.story}</p>
     </div>
   )
 }
