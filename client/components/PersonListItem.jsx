@@ -16,7 +16,7 @@ function PersonListItem (props) {
   // }, [])
 
   return (
-    <div className="person-list-item">
+    <div className="product">
       <p className='name'>{name}</p>
       <p className='skill'>Skill: {skill}</p>
       {/* <p className='story'>Story: {generatedOutput?.output}</p> */}
