@@ -25,7 +25,7 @@ function AddSkill (props) {
       <input name='skill' type='text' value={newPerson.skill} onChange={(e) => handleChange(e)} />
       <label htmlFor='discription'>Discription:</label>
       <input name='description' type='text' value={newPerson.description} onChange={(e) => handleChange(e)} />
-      <button type='submit' onClick={handleSubmit}>Add</button>
+      <button className='button' type='submit' onClick={handleSubmit}>Add</button>
     </div>
   )
 }

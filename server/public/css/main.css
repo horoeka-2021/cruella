@@ -70,12 +70,12 @@ h1 {
 .product p:last-child, .order p:last-child {
   display: flex;
   justify-content: space-between;
-  color: darkgray;
+  color: black;
 }
 
 .order-details {
   font-size: small;
-  color: darkgray;
+  color: black;
 }
 
 .pending {
@@ -97,6 +97,7 @@ h1 {
   float: right;
   width: fit-content;
   margin: 2px;
+  color: rgb(128, 0, 13);
 }
 
 .product .country {
@@ -143,4 +144,28 @@ span.actions {
   margin: 0 5px 0 5px;
   width: 40px;
   height: 40px;
+}
+
+.button {
+  background-color: rgb(128, 0, 13);
+  color: white;
+}
+
+a:link {
+  color: rgb(128, 0, 13);
+}
+
+/* visited link */
+a:visited {
+  color: rgb(128, 0, 13);
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
 }
