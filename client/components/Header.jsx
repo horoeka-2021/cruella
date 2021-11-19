@@ -13,7 +13,6 @@ function Header () {
         <nav>
           <ul>
             <Link to='/'>Home</Link>
-            <Link to='/about'>About</Link>
             <Link to='/addskill'>Add Skill</Link>
           </ul>
         </nav>
