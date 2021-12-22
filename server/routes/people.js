@@ -21,7 +21,10 @@ router.post('/', (req, res) => {
       res.sendStatus(201)
       return null
     })
-    .catch(err => console.error('Who do you think you are, God! ', err.message))
+    .catch(err => {
+      console.error('error message: ', err.message)
+      console.error('Error with db.addPerson where req.body: ', req.body)
+    })
 })
 
 router.patch('/', (req, res) => {
