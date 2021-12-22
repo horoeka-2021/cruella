@@ -7,7 +7,7 @@ import { getStory } from '../api/people'
 // import formatPerson from '../utils/formatPerson'
 
 function AddSkill (props) {
-  console.log(props)
+  // console.log(props)
   const { children, history } = props
   const initialState = { name: '', skill: '', story: '' }
   const [newPerson, setNewPerson] = React.useState(initialState)
