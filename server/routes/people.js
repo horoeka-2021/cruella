@@ -23,7 +23,6 @@ router.post('/', (req, res) => {
     })
     .catch(err => {
       console.error('error message: ', err.message)
-      console.error('Error with db.addPerson where req.body: ', req.body)
     })
 })
 
