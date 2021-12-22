@@ -38,7 +38,7 @@ export function addPerson (person, history) {
         return null
       })
       .catch(err => {
-        console.error(err.message)
+        console.error('Redux Action error when calling our internal API: ', err.message)
       })
   }
 }
