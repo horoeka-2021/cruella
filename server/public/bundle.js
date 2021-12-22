@@ -1894,7 +1894,7 @@ function addPerson(person, history) {
       history.push('/');
       return null;
     })["catch"](function (err) {
-      console.error(err.message);
+      console.error('Redux Action error when calling our internal API: ', err.message);
     });
   };
 } // function that returns a function that dispatches the action
@@ -1958,7 +1958,7 @@ function getPeople() {
   });
 }
 function postPerson(person) {
-  console.log('postPerson API called with: person = ', person);
+  // console.log('postPerson API called with: person = ', person)
   return superagent__WEBPACK_IMPORTED_MODULE_0___default().post(peopleUrl).send(person);
 }
 function patchPerson(updatedPerson) {
@@ -2016,7 +2016,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
  // import formatPerson from '../utils/formatPerson'
 
 function AddSkill(props) {
-  console.log(props);
+  // console.log(props)
   var children = props.children,
       history = props.history;
   var initialState = {
@@ -2044,7 +2044,6 @@ function AddSkill(props) {
     var storyForRandomizer = "".concat(randomStoryPerson.name, " is the best in the world at ").concat(randomStoryPerson.skill, " because ").concat(randomStoryPerson.story);
     dispatch((0,_actions_setWaiting__WEBPACK_IMPORTED_MODULE_5__.setWaiting)());
     (0,_api_people__WEBPACK_IMPORTED_MODULE_6__.getStory)(storyForRandomizer).then(function (story) {
-      console.log('React Component, story.output: ', story.output);
       randomStoryPerson.story = story.output;
       dispatch((0,_actions_people__WEBPACK_IMPORTED_MODULE_4__.addPerson)(randomStoryPerson, history));
       return null;

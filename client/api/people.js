@@ -8,7 +8,7 @@ export function getPeople () {
 }
 
 export function postPerson (person) {
-  console.log('postPerson API called with: person = ', person)
+  // console.log('postPerson API called with: person = ', person)
   return request.post(peopleUrl)
     .send(person)
 }
