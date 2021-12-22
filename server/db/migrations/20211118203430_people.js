@@ -3,7 +3,7 @@ exports.up = function (knex) {
     table.increments('id')
     table.string('name')
     table.string('skill')
-    table.string('story')
+    table.text('story')
   })
 }
 

@@ -21,7 +21,9 @@ router.post('/', (req, res) => {
       res.sendStatus(201)
       return null
     })
-    .catch(err => console.error('Who do you think you are, God! ', err.message))
+    .catch(err => {
+      console.error('error message: ', err.message)
+    })
 })
 
 router.patch('/', (req, res) => {
@@ -32,5 +34,3 @@ router.patch('/', (req, res) => {
     })
     .catch(err => console.error('You cannot change my mind! ', err.message))
 })
-
-

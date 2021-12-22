@@ -13,6 +13,7 @@ function listPeople (db = connection) {
 }
 
 function addPerson (newPerson, db = connection) {
+  console.log('db.addPerson called with: newPerson = ', newPerson)
   return db('people')
     .insert(newPerson)
 }
