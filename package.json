@@ -35,9 +35,7 @@
   "dependencies": {
     "deepai": "^1.0.17",
     "express": "^4.17.1",
-    "react-router-dom": "^5.2.0"
-  },
-  "devDependencies": {
+    "react-router-dom": "^5.2.0",
     "@babel/core": "^7.13.15",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.13.8",

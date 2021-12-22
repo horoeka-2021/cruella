@@ -1913,6 +1913,27 @@ function fetchPeople() {
 
 /***/ }),
 
+/***/ "./client/actions/setWaiting.js":
+/*!**************************************!*\
+  !*** ./client/actions/setWaiting.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "WAITING_PENDING": () => (/* binding */ WAITING_PENDING),
+/* harmony export */   "setWaiting": () => (/* binding */ setWaiting)
+/* harmony export */ });
+var WAITING_PENDING = 'WAITING_PENDING';
+var setWaiting = function setWaiting() {
+  return {
+    type: WAITING_PENDING
+  };
+};
+
+/***/ }),
+
 /***/ "./client/api/people.js":
 /*!******************************!*\
   !*** ./client/api/people.js ***!
@@ -1978,7 +1999,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_people__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../actions/people */ "./client/actions/people.js");
-/* harmony import */ var _api_people__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../api/people */ "./client/api/people.js");
+/* harmony import */ var _actions_setWaiting__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../actions/setWaiting */ "./client/actions/setWaiting.js");
+/* harmony import */ var _api_people__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../api/people */ "./client/api/people.js");
 
 
 
@@ -1989,10 +2011,13 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+
  // import formatPerson from '../utils/formatPerson'
 
 function AddSkill(props) {
-  var history = props.history;
+  console.log(props);
+  var children = props.children,
+      history = props.history;
   var initialState = {
     name: '',
     skill: '',
@@ -2016,7 +2041,8 @@ function AddSkill(props) {
     var randomStoryPerson = _objectSpread({}, newPerson);
 
     var storyForRandomizer = "".concat(randomStoryPerson.name, " is the best in the world at ").concat(randomStoryPerson.skill, " because ").concat(randomStoryPerson.story);
-    (0,_api_people__WEBPACK_IMPORTED_MODULE_5__.getStory)(storyForRandomizer).then(function (story) {
+    dispatch((0,_actions_setWaiting__WEBPACK_IMPORTED_MODULE_5__.setWaiting)());
+    (0,_api_people__WEBPACK_IMPORTED_MODULE_6__.getStory)(storyForRandomizer).then(function (story) {
       randomStoryPerson.story = story.output;
       dispatch((0,_actions_people__WEBPACK_IMPORTED_MODULE_4__.addPerson)(randomStoryPerson, history));
       return null;
@@ -2048,19 +2074,18 @@ function AddSkill(props) {
       return handleChange(e);
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("label", {
-    htmlFor: "discription"
-  }, "Discription:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("input", {
-    name: "description",
+    htmlFor: "story"
+  }, "story:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("input", {
+    name: "story",
     type: "text",
-    value: newPerson.description,
+    value: newPerson.story,
     onChange: function onChange(e) {
       return handleChange(e);
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("button", {
-    className: "button",
     type: "submit",
     onClick: handleSubmit
-  }, "Add"));
+  }, "Add"), children);
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddSkill);
@@ -2267,7 +2292,19 @@ function Person(props) {
     return person.id === id;
   });
   console.log('Person person: ', person);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "I am a person"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "I am ", person.name, " My skill is ", person.skill, " and my story is ", person.story));
+  var pictureUrlJPG = "/images/".concat(person.name.toLowerCase(), ".jpg");
+  var pictureUrlJPEG = "/images/".concat(person.name.toLowerCase(), ".jpeg");
+  var pictureUrlPNG = "/images/".concat(person.name.toLowerCase(), ".png");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "I am a person"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: pictureUrlJPG,
+    alt: ""
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: pictureUrlJPEG,
+    alt: ""
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: pictureUrlPNG,
+    alt: ""
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, person.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, person.skill), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, person.story));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Person);
@@ -2307,9 +2344,7 @@ function PersonListItem(props) {
     className: "name"
   }, name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "skill"
-  }, "Skill: ", skill), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-    className: "story"
-  }, "Story: ", story));
+  }, "Skill: ", skill));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PersonListItem);
@@ -2335,7 +2370,7 @@ __webpack_require__.r(__webpack_exports__);
 function WaitIndicator(props) {
   return props.waiting ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "wait-indicator",
-    src: "/animated-circle.gif"
+    src: "/loadingGears.gif"
   }) : null;
 }
 
@@ -2360,12 +2395,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _people__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./people */ "./client/reducers/people.js");
+/* harmony import */ var _waiting__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./waiting */ "./client/reducers/waiting.js");
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,redux__WEBPACK_IMPORTED_MODULE_1__.combineReducers)({
-  people: _people__WEBPACK_IMPORTED_MODULE_0__["default"]
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,redux__WEBPACK_IMPORTED_MODULE_2__.combineReducers)({
+  people: _people__WEBPACK_IMPORTED_MODULE_0__["default"],
+  waiting: _waiting__WEBPACK_IMPORTED_MODULE_1__["default"]
 }));
 
 /***/ }),
@@ -2399,6 +2437,26 @@ function people() {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (people);
+
+/***/ }),
+
+/***/ "./client/reducers/waiting.js":
+/*!************************************!*\
+  !*** ./client/reducers/waiting.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ waiting)
+/* harmony export */ });
+function waiting() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  if (/PENDING/.test(action.type)) return true;
+  if (/SUCCESS/.test(action.type)) return false;else return state;
+}
 
 /***/ }),
 
