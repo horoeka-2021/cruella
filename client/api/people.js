@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-const peopleUrl = '/api/v1/people'
+const peopleUrl = '/api/v1/people/'
 
 export function getPeople () {
   return request.get(peopleUrl)
