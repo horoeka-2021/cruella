@@ -28,7 +28,6 @@ function AddSkill (props) {
 
     getStory(storyForRandomizer)
       .then(story => {
-        console.log('React Component, story.output: ', story.output)
         randomStoryPerson.story = story.output
         dispatch(addPerson(randomStoryPerson, history))
         return null
